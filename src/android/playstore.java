@@ -16,22 +16,20 @@ import android.net.Uri;
 public class playstore extends CordovaPlugin {
 	@Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-       System.out.println("###### got the request");
+       System.out.println("Request received");
 		if (action.equals("openPlaystoreApp")) {
-			System.out.println("###### entered inside if");
-			System.out.println("#### App Package Name"+args.getString(0));
-            this.openGooglePlaystoreWithApplication(callbackContext,args.getString(0));
-            return true;
-        }
-		System.out.println("###### outside of else");
+			System.out.println("Application package name : "+args.getString(0));
+            		this.openGooglePlaystoreWithApplication(callbackContext,args.getString(0));
+            		return true;
+		}
+		
         return false;
     }
     
 	private void openGooglePlaystoreWithApplication(CallbackContext callbackContext,String package_name){
-		System.out.println("###### Function called");
-		System.out.println("#### App Package Name Inside function"+package_name);
+		System.out.println("Application package name inside function : "+package_name);
 		Intent marketIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + package_name));
-        marketIntent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET|Intent.FLAG_ACTIVITY_MULTIPLE_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
-        cordova.getActivity().startActivity(marketIntent);
+		marketIntent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET|Intent.FLAG_ACTIVITY_MULTIPLE_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        	cordova.getActivity().startActivity(marketIntent);
 	}
 } 
