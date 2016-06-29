@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.stlindia.playstore"
+        version="0.1">
+
+    <engines>
+        <engine name="cordova" version=">=3.5.0" />
+    </engines>
+
+    <name>Playstore plugin</name>
+    <description>Open playstore application with specified application id</description>
+    <author>Amrut</author>
+    <license>Apache 2.0</license>
+    <keywords>google playstore</keywords>
+    <repo>https://github.com/amrut/</repo>
+    <issue>https://github.com/amrut</issue>
+
+    <js-module src="www/playstore.js" name="google">
+        <clobbers target="google" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="playstore" >
+                <param name="android-package" value="com.stlindia.playstore.playstore"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+        </config-file>
+
+        <source-file src="src/android/playstore.java" target-dir="src/com/stlindia/playstore" />
+    </platform>
+</plugin>
