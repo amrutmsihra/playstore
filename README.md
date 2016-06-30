@@ -11,6 +11,8 @@ Exposes 1 method:
 ```javascript
 window.plugins.google.openPlaystoreApp("com.twitter.android");
 ```
+#Supported Platforms
+Android
 
 #Authors
 <b>Amrut Mishra</b> - <i>Initial Work</i> - [Amrut Mishra](https://github.com/amrutmsihra)
