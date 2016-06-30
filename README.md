@@ -11,3 +11,6 @@ Exposes 1 method:
 ```javascript
 window.plugins.google.openPlaystoreApp("com.twitter.android");
 ```
+
+#Authors
+<b>Amrut Mishra</b> - <i>Initial Work</i> - [Amrut Mishra](https://github.com/amrutmsihra)
